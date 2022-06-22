@@ -9,7 +9,7 @@ int main(){
 
     for(int i=1 ; i<=n ; i++){
 
-        if(left<5) break;
+        if(left<i*5) break;
         else{
             p++;
             left -= i*5;
