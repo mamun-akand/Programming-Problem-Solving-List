@@ -1,4 +1,4 @@
-// URL: https://vjudge.net/contest/568978#problem/G
+// URL: https://codeforces.com/contest/1798/problem/B
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -37,14 +37,44 @@ using namespace std;
 int main(){
    FAST;
     
-   ll a, b, c; cin>>a>>b>>c;
-   
-   ll temp = ceil(a/(double)c);
-   if(temp==0) temp=1;
-   c = temp*c;
-   
-   if(c>=a && c<=b) cout << c << endl;
-   else cout << -1 << endl;
+   Test{
+      ll day; cin>>day;
+      unordered_map <ll, ll> mp;
+      vector<vector<ll>> v;
+      
+      for(ll i=0; i<day; i++){
+         ll n; cin>>n;
+         vll temp(n);
+         for(ll i=0; i<n; i++){
+            cin>>temp[i];
+            mp[temp[i]]++;
+         }
+         v.push_back(temp); 
+      }
+      
+      vll ans;
+      int flag;
+      
+      for(ll i=0; i<day; i++){
+         flag=0;
+         for(ll j=0; j<v[i].size(); j++){
+            if(mp[ v[i][j] ] == 1 && flag==0){
+               ans.pb(v[i][j]);  
+               flag=1;
+            }
+            mp[v[i][j]]--;
+         }
+      }
+      
+      if(ans.size() < day) cout << -1 << endl;
+      else{
+         for(auto it:ans){
+            cout << it << " ";
+         }
+         ln;
+      }
+      
+   }
    
    SpicyWings;
 }

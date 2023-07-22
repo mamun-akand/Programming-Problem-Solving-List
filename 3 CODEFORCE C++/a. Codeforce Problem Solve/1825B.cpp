@@ -1,4 +1,4 @@
-// URL: https://vjudge.net/contest/568978#problem/G
+// URL: https://codeforces.com/contest/1825/problem/B
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -37,14 +37,23 @@ using namespace std;
 int main(){
    FAST;
     
-   ll a, b, c; cin>>a>>b>>c;
-   
-   ll temp = ceil(a/(double)c);
-   if(temp==0) temp=1;
-   c = temp*c;
-   
-   if(c>=a && c<=b) cout << c << endl;
-   else cout << -1 << endl;
+   Test{
+      ll n, m; cin>>n>>m;
+      if(n>m) swap(n, m);
+            
+      vll v(n*m); for(auto &it:v) cin>>it;
+      sort(all(v));
+      
+      ll sum1=0;
+      sum1 += (v[v.size()-2] - v[0])*(n-1);
+      sum1 += (v[v.size()-1] - v[0])*((m-1)*n);
+      
+      ll sum2=0;
+      sum2 += (v[v.size()-1] - v[0])*((m-1)*n);
+      sum2 += (v[v.size()-1] - v[1])*(n-1);
+      
+      cout << max(sum1, sum2) << endl;
+   }
    
    SpicyWings;
 }

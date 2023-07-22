@@ -1,4 +1,4 @@
-// URL: https://vjudge.net/contest/568978#problem/G
+// URL: https://vjudge.net/contest/568978#problem/E
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -37,14 +37,13 @@ using namespace std;
 int main(){
    FAST;
     
-   ll a, b, c; cin>>a>>b>>c;
+   string s; cin>>s;
    
-   ll temp = ceil(a/(double)c);
-   if(temp==0) temp=1;
-   c = temp*c;
+   for(ll i=1; i<=3; i++){
+      if(s.size()<4) s = "0" + s;
+   }
    
-   if(c>=a && c<=b) cout << c << endl;
-   else cout << -1 << endl;
+   cout << s << endl;
    
    SpicyWings;
 }

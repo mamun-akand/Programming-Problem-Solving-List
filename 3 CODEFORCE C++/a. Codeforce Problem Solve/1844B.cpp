@@ -1,5 +1,3 @@
-// URL: https://vjudge.net/contest/568978#problem/G
-
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -37,14 +35,32 @@ using namespace std;
 int main(){
    FAST;
     
-   ll a, b, c; cin>>a>>b>>c;
-   
-   ll temp = ceil(a/(double)c);
-   if(temp==0) temp=1;
-   c = temp*c;
-   
-   if(c>=a && c<=b) cout << c << endl;
-   else cout << -1 << endl;
+   Test{
+      ll n; cin>>n;
+      deque <ll> q;
+      
+      q.push_back(1);
+      
+      for(ll i=4; i<=n; i++){
+         if(i%2==0) q.push_back(i);
+         else q.push_front(i);
+      }
+      
+      if(n>2){
+         q.push_front(2);
+         q.push_back(3);
+      }
+      if(n==2){
+         q.push_front(2);
+      }
+      
+      while(!q.empty()){
+         cout << q.front() << " ";
+         q.pop_front();
+      }
+      cout << endl; 
+      
+   }
    
    SpicyWings;
 }

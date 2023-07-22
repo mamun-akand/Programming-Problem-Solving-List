@@ -1,4 +1,4 @@
-// URL: https://vjudge.net/contest/568978#problem/G
+// URL: https://codeforces.com/contest/1632/problem/B
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -37,14 +37,21 @@ using namespace std;
 int main(){
    FAST;
     
-   ll a, b, c; cin>>a>>b>>c;
-   
-   ll temp = ceil(a/(double)c);
-   if(temp==0) temp=1;
-   c = temp*c;
-   
-   if(c>=a && c<=b) cout << c << endl;
-   else cout << -1 << endl;
+   Test{
+      ll n; cin>>n;
+      ll p = log2(n-1);
+      
+      ll ans = pow(2, p);
+      
+      for(ll i=ans-1; i>=0; i--){
+         cout << i << " ";
+      }
+      
+      for(ll i=ans; i<=n-1; i++){
+         cout << i << " ";
+      }
+      cout << endl;
+   }
    
    SpicyWings;
 }

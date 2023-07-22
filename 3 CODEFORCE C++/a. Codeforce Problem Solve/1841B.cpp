@@ -1,4 +1,4 @@
-// URL: https://vjudge.net/contest/568978#problem/G
+// URL: https://codeforces.com/problemset/problem/1841/B
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -37,14 +37,34 @@ using namespace std;
 int main(){
    FAST;
     
-   ll a, b, c; cin>>a>>b>>c;
-   
-   ll temp = ceil(a/(double)c);
-   if(temp==0) temp=1;
-   c = temp*c;
-   
-   if(c>=a && c<=b) cout << c << endl;
-   else cout << -1 << endl;
+   Test{
+      ll n; cin>>n;
+      multiset <ll> s, ss;
+      
+      for(ll i=0; i<n; i++){
+         ll x; cin>>x;
+         if(i==0) {
+            s.insert(x);
+            cout << 1; 
+            continue;
+         }
+         if(ss.empty() && x >= *(--s.end())){
+            s.insert(x);
+            cout << 1;
+         }
+         else if(ss.empty() && x <= *s.begin()){
+            ss.insert(x);
+            cout << 1;
+         }
+         else if(!ss.empty() && x <= *s.begin() && x >= *ss.rbegin()){
+            ss.insert(x);
+            cout << 1;
+         }
+         else cout << 0;
+      }
+      cout << endl;
+         
+   }
    
    SpicyWings;
 }

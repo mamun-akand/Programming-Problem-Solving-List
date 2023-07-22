@@ -1,4 +1,4 @@
-// URL: https://vjudge.net/contest/568978#problem/G
+// URL: https://codeforces.com/contest/1605/problem/B
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -37,14 +37,32 @@ using namespace std;
 int main(){
    FAST;
     
-   ll a, b, c; cin>>a>>b>>c;
+   Test{
+      ll n; cin>>n;
+      string s, s2; cin>>s;
+      
+      s2 = s;
+      sort( all(s2) );
+      
+      if(s == s2){
+         cout << 0 << endl;
+         continue;
+      }
+      
+      vll v;
+      for(ll i=0; i<n; i++){
+         if(s[i] != s2[i]) v.pb(i+1);
+      }
+      
+      cout << 1 << endl;
+      cout << v.size() << " ";
+      for(auto it:v){
+         cout << it << " ";
+      }
+      ln;
+      
+   }
    
-   ll temp = ceil(a/(double)c);
-   if(temp==0) temp=1;
-   c = temp*c;
-   
-   if(c>=a && c<=b) cout << c << endl;
-   else cout << -1 << endl;
-   
-   SpicyWings;
+  SpicyWings;
+  // A L H A M D U L I L L A H;
 }

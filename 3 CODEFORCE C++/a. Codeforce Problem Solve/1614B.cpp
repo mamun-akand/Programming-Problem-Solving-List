@@ -1,4 +1,4 @@
-// URL: https://vjudge.net/contest/568978#problem/G
+// URL: https://codeforces.com/contest/1614/problem/B
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -37,14 +37,38 @@ using namespace std;
 int main(){
    FAST;
     
-   ll a, b, c; cin>>a>>b>>c;
-   
-   ll temp = ceil(a/(double)c);
-   if(temp==0) temp=1;
-   c = temp*c;
-   
-   if(c>=a && c<=b) cout << c << endl;
-   else cout << -1 << endl;
+   Test{
+      ll n; cin>>n;
+      vll ans(n+1);
+      
+      multimap<ll, ll, greater<int>> mp;
+      
+      for(ll i=1; i<=n; i++){
+         ll x; cin>>x;
+         mp.insert({x, i});
+      }
+      
+      ll mid = (ceil)((n+1)/2.0);
+      ans[0] = mid;
+      
+      ll i=1, check=0, sum=0;
+      for(auto it:mp){
+         ll add=0;
+         if(check==0){
+            add = mid+i;
+            check = 1;
+         }
+         else{
+            add = mid-i;
+            i++;
+            check=0;
+         }
+         ans[it.second] = add;
+         sum += 2*abs(add-mid)*it.first;
+      }
+      cout << sum << endl;
+      vp(ans); ln; 
+   }
    
    SpicyWings;
 }

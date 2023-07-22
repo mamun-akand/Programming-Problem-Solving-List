@@ -1,4 +1,4 @@
-// URL: https://vjudge.net/contest/568978#problem/G
+// URL: https://codeforces.com/contest/1605/problem/B
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -37,14 +37,48 @@ using namespace std;
 int main(){
    FAST;
     
-   ll a, b, c; cin>>a>>b>>c;
+   Test{
+      ll n; cin>>n;
+      string s; cin>>s;
+      
+      string s2 = s;
+      sort(all(s2));
+      
+      ll cnt=0;
+      
+      vector<set<ll>> v;
+      
+      while(s != s2){
+         cnt++; 
+         set<ll> st;
+         ll L = 0, R = s.size()-1;
+         while(L<=R){
+            if(s[L]=='1' && s[R]=='0'){
+               swap(s[L], s[R]);
+               st.insert(L+1);
+               st.insert(R+1);
+               L++; R--;
+            }
+            else if(s[L] == '0') L++;
+            else if(s[R] == '1') R--;
+         }
+         v.pb(st);
+         st.clear();
+      }
+      
+      cout << cnt << endl;
+
+      for(auto it:v){
+         cout << it.size() << " ";
+         for(auto itt:it){
+            cout << itt << " ";
+         }
+         cout << endl;
+      }
+      
+   }
    
-   ll temp = ceil(a/(double)c);
-   if(temp==0) temp=1;
-   c = temp*c;
-   
-   if(c>=a && c<=b) cout << c << endl;
-   else cout << -1 << endl;
-   
-   SpicyWings;
+  
+  SpicyWings;
+  /// A L H A M D U L I L L A H;
 }

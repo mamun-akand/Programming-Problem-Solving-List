@@ -1,4 +1,4 @@
-// URL: https://vjudge.net/contest/568978#problem/G
+// URL: https://vjudge.net/contest/568978#problem/D
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -37,14 +37,8 @@ using namespace std;
 int main(){
    FAST;
     
-   ll a, b, c; cin>>a>>b>>c;
-   
-   ll temp = ceil(a/(double)c);
-   if(temp==0) temp=1;
-   c = temp*c;
-   
-   if(c>=a && c<=b) cout << c << endl;
-   else cout << -1 << endl;
+   double x; cin>>x;
+   cout << round(x) << endl;
    
    SpicyWings;
 }

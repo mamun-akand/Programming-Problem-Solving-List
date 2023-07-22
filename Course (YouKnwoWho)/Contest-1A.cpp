@@ -1,4 +1,4 @@
-// URL: https://vjudge.net/contest/568978#problem/G
+// URL: https://vjudge.net/contest/568978#problem/A
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -20,7 +20,7 @@ using namespace std;
 #define   rn      return 0;
 
 #define   pa      cout<<ans<<endl
-#define   py      cout<<"YES"<<endl
+#define   py      cout<<"YES"<<endl	
 #define   pn      cout<<"NO"<<endl
 
 #define   Test    ll tc; cin>>tc; cin.ignore(); f1(t,tc)
@@ -37,14 +37,8 @@ using namespace std;
 int main(){
    FAST;
     
-   ll a, b, c; cin>>a>>b>>c;
-   
-   ll temp = ceil(a/(double)c);
-   if(temp==0) temp=1;
-   c = temp*c;
-   
-   if(c>=a && c<=b) cout << c << endl;
-   else cout << -1 << endl;
+   ll a, b; cin>>a>>b;
+   cout << a*b << endl;
    
    SpicyWings;
 }

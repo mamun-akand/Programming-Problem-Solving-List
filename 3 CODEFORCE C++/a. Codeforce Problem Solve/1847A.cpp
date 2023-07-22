@@ -1,4 +1,4 @@
-// URL: https://vjudge.net/contest/568978#problem/G
+// URL: https://codeforces.com/contest/1847/problem/A?fbclid=IwAR3PDvamUi7HMmiG06t_8RoUkWVlLrWtadK7dYSIetJKJjsXyO4ZUY7YD6o
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -37,14 +37,25 @@ using namespace std;
 int main(){
    FAST;
     
-   ll a, b, c; cin>>a>>b>>c;
-   
-   ll temp = ceil(a/(double)c);
-   if(temp==0) temp=1;
-   c = temp*c;
-   
-   if(c>=a && c<=b) cout << c << endl;
-   else cout << -1 << endl;
+   Test{
+      ll n, k; cin>>n>>k;
+      vll v(n); for(auto &it:v) cin>>it;
+      vll dif;
+      
+      dif.pb(0);
+      for(ll i=1; i<n; i++){
+         ll x = abs(v[i] - v[i-1]);
+         dif.pb(x);
+      }
+      
+      sort(all(dif), greater<int>());
+      
+      ll sol=0;
+      for(ll i=k-1; i<n; i++){
+         sol += dif[i];
+      }
+      cout << sol << endl; 
+   }
    
    SpicyWings;
 }

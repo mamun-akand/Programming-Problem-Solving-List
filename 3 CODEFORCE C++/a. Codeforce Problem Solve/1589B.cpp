@@ -1,4 +1,4 @@
-// URL: https://vjudge.net/contest/568978#problem/G
+// URL: https://codeforces.com/contest/1589/problem/B
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -37,14 +37,13 @@ using namespace std;
 int main(){
    FAST;
     
-   ll a, b, c; cin>>a>>b>>c;
-   
-   ll temp = ceil(a/(double)c);
-   if(temp==0) temp=1;
-   c = temp*c;
-   
-   if(c>=a && c<=b) cout << c << endl;
-   else cout << -1 << endl;
+   Test{
+      ll a, b; cin>>a>>b;
+      ll Area = a*b;
+      
+      if(Area%3==0) cout << Area/3 << endl;
+      else cout << (Area/3)+1 << endl;
+   }
    
    SpicyWings;
 }
