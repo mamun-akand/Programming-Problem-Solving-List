@@ -1,4 +1,4 @@
-// URL: https://codeforces.com/contest/1816/problem/B
+// URL: https://codeforces.com/contest/1447/problem/B
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -36,41 +36,26 @@ using namespace std;
 
 int main(){
    FAST;
-    
+   
    Test{
-      ll n; cin>>n;
-      ll grid[2][n];
-      
-      ll odd0=2;
-      for(ll i=1; i<n; i+=2){
-         grid[0][i] = odd0;
-         odd0+=2;
-      }
-      
-      ll even0=2*n;
-      for(ll i=0; i<n; i+=2){
-         grid[0][i] = even0;
-         even0-=2;
-      }
-      
-      ll even1=1;
-      for(ll i=0; i<n; i+=2){
-         grid[1][i] = even1;
-         even1+=2;
-      }
-      
-      odd0-=1;
-      for(ll i=1; i<n; i+=2){
-         grid[1][i] = odd0;
-         odd0+=2;
-      }
-      
-      for(ll i=0; i<2; i++){
-         for(ll j=0; j<n; j++){
-            cout << grid[i][j] << " ";
+      ll n, m; cin>>n>>m;
+      vll v;
+      ll zero=0, neg=0;
+      for(ll i=0; i<n; i++){
+         for(ll j=0; j<m; j++){
+            ll x; cin>>x;
+            if(x == 0) zero++;
+            if(x < 0) {neg++; x=x*-1;}
+            v.pb(x);
          }
-         ln;
       }
+      sort(all(v));
+      if((zero+neg)%2==1) v[0] = v[0]*-1;
+      ll sum=0;
+      for(ll i=0; i<v.size(); i++){
+         sum += v[i];
+      }
+      cout << sum << endl;
    }
    
    SpicyWings;
