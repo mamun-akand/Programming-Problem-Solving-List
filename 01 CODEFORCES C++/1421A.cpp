@@ -1,4 +1,5 @@
-// URL: https://vjudge.net/problem/atcoder-abc213_a
+// URL: https://vjudge.net/contest/579773#problem/B
+
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -28,8 +29,10 @@ using namespace std;
 int main(){
 	FAST;
    
-	// ll a, b; cin>>a>>b;
-	cout << (6^12) << endl;
+	Test{
+		ll a, b; cin>>a>>b;
+		cout << (a^b) << endl;
+	}
    
 	SpicyWings;
 }
